@@ -18,3 +18,18 @@ describe('App component', () => {
     expect(wrapper.contains(welcome)).toEqual(true);
   });
 })
+
+describe('Person component', () => {
+
+  const person = {"id":1,"name":"Dyanna Cullingford","email":"dcullingford0@nba.com","avatar":"https://robohash.org/rerumliberoamet.png?size=200x200&set=set1","description":"Nondisplaced fracture of lower epiphysis (separation) of left femur, initial encounter for closed fracture"}
+
+  it('renders without crashing', () => {
+     shallow(<Person person={person} />);
+  });
+
+  it('renders Person name', () => {
+    const wrapper = shallow(<Person person={person} />);
+    const name = <h4>Dyanna Cullingford</h4>;
+    expect(wrapper.contains(name)).toEqual(true);
+  });
+})

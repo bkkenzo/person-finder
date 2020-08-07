@@ -19,8 +19,11 @@ class App extends React.Component {
           <input type="text" id="name" name="name" placeholder="Type a name" />
         </form>
 
-        <Person />
-
+        <Person person = {data[0]} />
+        <Person person = {data[1]} />
+        <Person person = {data[2]} />
+        <Person person = {data[3]} />
+        <Person person = {data[4]} />
       </div>
     )
   }
