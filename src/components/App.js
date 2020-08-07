@@ -4,8 +4,29 @@ import Person from "./Person"
 
 class App extends React.Component {
 
+  constructor(){
+    super()
+    this.state = {
+      searchResult: data.slice(0, 10)
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(e) {
+    let name = e.target.value
+    name = name.trim().toLowerCase()
+
+    const searchResult = data.filter(
+      el => el.name.toLowerCase()
+      .includes(name)
+    )
+
+    if (name === '' ) this.setState({searchResult: data.slice(0, 10)})
+    else this.setState({searchResult: searchResult})
+  }
 
   render() {
+
     return (
       <div>
 
@@ -16,14 +37,12 @@ class App extends React.Component {
         </p>
 
         <form>
-          <input type="text" id="name" name="name" placeholder="Type a name" />
+          <input type="text" id="name" name="name" placeholder="Type a name" onChange={this.handleChange} />
         </form>
 
-        <Person person = {data[0]} />
-        <Person person = {data[1]} />
-        <Person person = {data[2]} />
-        <Person person = {data[3]} />
-        <Person person = {data[4]} />
+        {
+          this.state.searchResult.map( (el, idx) => <Person key={idx} person={el} />)
+        }
       </div>
     )
   }

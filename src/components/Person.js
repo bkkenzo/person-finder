@@ -11,6 +11,7 @@ class Person extends React.Component {
         <div id="info">
           <h4>{person.name}</h4>
           <p>{person.description}</p>
+          <i>{person.email}</i>
         </div>
       </div>
     )
