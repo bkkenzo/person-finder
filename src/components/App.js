@@ -1,7 +1,10 @@
 import React from "react";
-
+import data from "./../../public/mock-data"
+import Person from "./Person"
 
 class App extends React.Component {
+
+
   render() {
     return (
       <div>
@@ -13,8 +16,10 @@ class App extends React.Component {
         </p>
 
         <form>
-          <input type="text" id="name" name="name" placeholder="Type a name"/>
+          <input type="text" id="name" name="name" placeholder="Type a name" />
         </form>
+
+        <Person />
 
       </div>
     )
